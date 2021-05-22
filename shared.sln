@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shared", "shared\shared.csproj", "{0180EFB4-D4A4-4AE1-996E-2BB263A8EF39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shared-tests", "shared-tests\shared-tests.csproj", "{DCFFF7EA-8D8D-4FF8-9658-5AF832AAA8EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0180EFB4-D4A4-4AE1-996E-2BB263A8EF39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0180EFB4-D4A4-4AE1-996E-2BB263A8EF39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0180EFB4-D4A4-4AE1-996E-2BB263A8EF39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0180EFB4-D4A4-4AE1-996E-2BB263A8EF39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCFFF7EA-8D8D-4FF8-9658-5AF832AAA8EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCFFF7EA-8D8D-4FF8-9658-5AF832AAA8EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCFFF7EA-8D8D-4FF8-9658-5AF832AAA8EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCFFF7EA-8D8D-4FF8-9658-5AF832AAA8EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
