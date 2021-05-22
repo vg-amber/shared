@@ -1,3 +1,7 @@
+// Copyright 2021-2021 Vg-Amber Project
+// Licensed under Apache License 2.0 or any later version
+// Refer to the LICENSE file included.
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -61,7 +65,7 @@ namespace Amber.Shared.Extensions {
         public static LinkedListNode<T>? RemoveFirst<T>(this LinkedList<T> list, Predicate<T> predicate) {
             var node = list.First;
             while (node != null) {
-                if (predicate(node.Value)) {    
+                if (predicate(node.Value)) {
                     list.Remove(node);
                     return node;
                 }
