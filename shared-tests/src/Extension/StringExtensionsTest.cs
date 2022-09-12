@@ -3,6 +3,7 @@
 // Refer to the LICENSE file included.
 
 using Amber.Shared.Extension;
+
 using NUnit.Framework;
 
 namespace Amber.Shared.Tests.Extension;

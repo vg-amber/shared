@@ -4,7 +4,9 @@
 
 using System;
 using System.Threading.Tasks;
+
 using Amber.Shared.Utility;
+
 using NUnit.Framework;
 
 namespace Amber.Shared.Tests.Utility;
@@ -15,7 +17,5 @@ namespace Amber.Shared.Tests.Utility;
 [TestFixture]
 public class EnumerationUtilitiesTest {
     [Test]
-    public void Values() {
-        Assert.That(EnumerationUtilities.Values<TaskCreationOptions>(), Is.EquivalentTo(Enum.GetValues(typeof(TaskCreationOptions))));
-    }
+    public void Values() => Assert.That(EnumerationUtilities.Values<TaskCreationOptions>(), Is.EquivalentTo(Enum.GetValues(typeof(TaskCreationOptions))));
 }

@@ -3,7 +3,9 @@
 // Refer to the LICENSE file included.
 
 using System.Collections.Generic;
+
 using Amber.Shared.Extension;
+
 using NUnit.Framework;
 
 namespace Amber.Shared.Tests.Extension;
@@ -14,7 +16,5 @@ namespace Amber.Shared.Tests.Extension;
 [TestFixture]
 public class TypeExtensionsTest {
     [Test]
-    public void Name() {
-        Assert.That(typeof(Dictionary<string, List<int>>).Name(), Is.EqualTo("Dictionary<String, List<Int32>>"));
-    }
+    public void Name() => Assert.That(typeof(Dictionary<string, List<int>>).Name(), Is.EqualTo("Dictionary<String, List<Int32>>"));
 }
