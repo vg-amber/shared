@@ -2,9 +2,15 @@ name: Continuous Integration
 
 on:
     push:
+        paths-ignore:
+            - '**.md'
+            - LICENSE
         branches:
             - "*"
     pull_request:
+        paths-ignore: 
+            - '**.md'
+            - LICENSE
         branches:
             - "*"
     workflow_dispatch: 
