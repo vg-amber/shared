@@ -1,4 +1,8 @@
-# File header template
+# Coding rules
+
+This part defines all the coding rules that should be respected.
+
+## Header
 
 All files containing code in this project must contain the following header:
 

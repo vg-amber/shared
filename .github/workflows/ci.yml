@@ -2,28 +2,34 @@ name: Continuous Integration
 
 on:
     push:
+        paths-ignore:
+            - '**.md'
+            - LICENSE
         branches:
             - "*"
     pull_request:
+        paths-ignore:
+            - '**.md'
+            - LICENSE
         branches:
             - "*"
-    workflow_dispatch: 
+    workflow_dispatch:
 
 env:
-    dotnet-version: 3.1
+    dotnet-version: 6.0.x
 
-jobs: 
+jobs:
     build:
         name: Build project & run tests
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout project
-              uses: actions/checkout@v2
-            - name: Set up dotnet environment
-              uses: actions/setup-dotnet@v1
-              with: 
-                  dotnet-version: ${{env.dotnet-version}}
-            - name: Build project
-              run: dotnet build .
-            - name: Run tests
-              run: dotnet test . -l "console;verbosity=detailled"
+            -   name: Checkout project
+                uses: actions/checkout@v2
+            -   name: Set up dotnet environment
+                uses: actions/setup-dotnet@v2
+                with:
+                    dotnet-version: ${{env.dotnet-version}}
+            -   name: Build project
+                run: dotnet build .
+            -   name: Run tests
+                run: dotnet test . -l "console;verbosity=detailed"
