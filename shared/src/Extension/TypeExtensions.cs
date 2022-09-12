@@ -17,13 +17,13 @@ public static class TypeExtensions {
     /// <param name="type">Type</param>
     /// <returns>Pretty name</returns>
     public static string Name(this Type type) {
-        var genericArguments = type.GetGenericArguments();
+        Type[] genericArguments = type.GetGenericArguments();
         if (genericArguments.IsEmpty()) {
             return type.Name;
         }
 
-        var name = type.Name;
-        var prettyName = name[..name.IndexOf("`", StringComparison.Ordinal)];
+        string name = type.Name;
+        string prettyName = name[..name.IndexOf("`", StringComparison.Ordinal)];
         return prettyName + "<" + string.Join(", ", genericArguments.Select(Name)) + ">";
     }
 }

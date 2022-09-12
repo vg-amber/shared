@@ -4,7 +4,9 @@
 
 using System;
 using System.Collections.Generic;
+
 using Amber.Shared.Extension;
+
 using NUnit.Framework;
 
 namespace Amber.Shared.Tests.Extension;
@@ -16,7 +18,7 @@ namespace Amber.Shared.Tests.Extension;
 public class CollectionExtensionsTest {
     [Test]
     public void ForEach() {
-        var array = new[] { 1, 2, 3 };
+        int[] array = { 1, 2, 3 };
         var list = new List<int>();
 
         array.ForEach(list.Add);
@@ -29,16 +31,16 @@ public class CollectionExtensionsTest {
 
     [Test]
     public void NonNull() {
-        var intArrayWithNull = new int?[] { 1, 2, null, 3 };
-        var emptyArray = Array.Empty<int?>();
-        var intArray = new int?[] { 1, 2, 3 };
+        int?[] intArrayWithNull = { 1, 2, null, 3 };
+        int?[] emptyArray = Array.Empty<int?>();
+        int?[] intArray = { 1, 2, 3 };
 
         Assert.That(intArrayWithNull.NonNull(), Is.EquivalentTo(intArray));
         Assert.That(intArray.NonNull(), Is.EquivalentTo(intArray));
         Assert.That(emptyArray.NonNull(), Is.Empty);
 
-        var typeArrayWithNull = new[] { typeof(double), typeof(int), null, typeof(string) };
-        var typeArray = new[] { typeof(double), typeof(int), typeof(string) };
+        Type?[] typeArrayWithNull = { typeof(double), typeof(int), null, typeof(string) };
+        Type[] typeArray = { typeof(double), typeof(int), typeof(string) };
 
         Assert.That(typeArrayWithNull.NonNull(), Is.EquivalentTo(typeArray));
         Assert.That(typeArray.NonNull(), Is.EquivalentTo(typeArray));
@@ -49,8 +51,8 @@ public class CollectionExtensionsTest {
     public void IsEmpty() {
         var emptyList = new List<int>();
         var list = new List<int>(new[] { 1, 2 });
-        var emptyArray = Array.Empty<int>();
-        var array = new[] { 1, 2 };
+        int[] emptyArray = Array.Empty<int>();
+        int[] array = { 1, 2 };
 
         Assert.IsTrue(emptyList.IsEmpty());
         Assert.IsTrue(emptyArray.IsEmpty());
@@ -61,11 +63,11 @@ public class CollectionExtensionsTest {
 
     [Test]
     public void RemoveFirst() {
-        var list = Create(0, 1, 2, 3);
+        LinkedList<int> list = Create(0, 1, 2, 3);
 
         Assert.IsNull(list.RemoveFirst(i => i == 10));
 
-        var value = list.RemoveFirst(i => i == 2)?.Value;
+        int? value = list.RemoveFirst(i => i == 2)?.Value;
         Assert.That(value, Is.EqualTo(2));
         Assert.That(list, Is.EqualTo(new[] { 0, 1, 3 }));
     }

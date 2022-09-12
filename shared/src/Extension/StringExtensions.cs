@@ -18,7 +18,7 @@ public static class StringExtensions {
     public static string ToTitleCase(this string str) {
         var builder = new StringBuilder(str.Length);
 
-        for (var i = 0; i < str.Length; i++) {
+        for (int i = 0; i < str.Length; i++) {
             if (str[i] == '_') {
                 continue;
             }

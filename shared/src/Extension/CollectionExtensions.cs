@@ -19,7 +19,7 @@ public static class CollectionExtensions {
     /// <param name="action">Action to apply</param>
     /// <typeparam name="T">Enumerable element type</typeparam>
     public static void ForEach<T>(this IEnumerable<T> source, Action<T> action) {
-        foreach (var item in source) {
+        foreach (T item in source) {
             action(item);
         }
     }
@@ -64,7 +64,7 @@ public static class CollectionExtensions {
     /// <typeparam name="T">Linked list element type</typeparam>
     /// <returns>Removed node or null</returns>
     public static LinkedListNode<T>? RemoveFirst<T>(this LinkedList<T> list, Predicate<T> predicate) {
-        var node = list.First;
+        LinkedListNode<T>? node = list.First;
         while (node != null) {
             if (predicate(node.Value)) {
                 list.Remove(node);

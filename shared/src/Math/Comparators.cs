@@ -3,6 +3,7 @@
 // Refer to the LICENSE file included.
 
 using System;
+
 using Amber.Shared.Exception;
 
 namespace Amber.Shared.Math;
@@ -31,14 +32,13 @@ public static class Comparators {
     /// <typeparam name="T">Value type</typeparam>
     /// <returns>true if <paramref name="left"/> <paramref name="symbol"/> <paramref name="right"/>, false otherwise</returns>
     /// <exception cref="UnknownEnumException{T}">Exception thrown when an unknown enumeration is encountered</exception>
-    public static bool Compare<T>(T left, ComparisonSymbol symbol, T right) where T : IComparable<T> {
-        return symbol switch {
-            ComparisonSymbol.LessThan       => left.CompareTo(right) < 0,
-            ComparisonSymbol.LessOrEqual    => left.CompareTo(right) <= 0,
-            ComparisonSymbol.Equal          => left.CompareTo(right) == 0,
+    public static bool Compare<T>(T left, ComparisonSymbol symbol, T right) where T : IComparable<T> =>
+        symbol switch {
+            ComparisonSymbol.LessThan => left.CompareTo(right) < 0,
+            ComparisonSymbol.LessOrEqual => left.CompareTo(right) <= 0,
+            ComparisonSymbol.Equal => left.CompareTo(right) == 0,
             ComparisonSymbol.GreaterOrEqual => left.CompareTo(right) >= 0,
-            ComparisonSymbol.GreaterThan    => left.CompareTo(right) > 0,
-            _                               => throw new UnknownEnumException<ComparisonSymbol>(symbol)
+            ComparisonSymbol.GreaterThan => left.CompareTo(right) > 0,
+            _ => throw new UnknownEnumException<ComparisonSymbol>(symbol)
         };
-    }
 }

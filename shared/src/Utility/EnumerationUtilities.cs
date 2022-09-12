@@ -15,5 +15,5 @@ public static class EnumerationUtilities {
     /// </summary>
     /// <typeparam name="T">Enumeration type</typeparam>
     /// <returns>Values</returns>
-    public static T[] Values<T>() where T : Enum => (T[])Enum.GetValues(typeof(T));
+    public static T[] Values<T>() where T : Enum => (T[]) Enum.GetValues(typeof(T));
 }

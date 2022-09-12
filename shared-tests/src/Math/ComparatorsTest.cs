@@ -3,6 +3,7 @@
 // Refer to the LICENSE file included.
 
 using Amber.Shared.Math;
+
 using NUnit.Framework;
 
 namespace Amber.Shared.Tests.Math;
@@ -14,12 +15,12 @@ namespace Amber.Shared.Tests.Math;
 public class ComparatorsTest {
     [Test]
     public void Compare() {
-        var integers = new[] { 1, 2, 3 };
+        int[] integers = { 1, 2, 3 };
 
-        for (var i = 0; i < integers.Length; i++) {
-            var integer = integers[i];
-            for (var j = 0; j < integers.Length; j++) {
-                var otherInteger = integers[j];
+        for (int i = 0; i < integers.Length; i++) {
+            int integer = integers[i];
+            for (int j = 0; j < integers.Length; j++) {
+                int otherInteger = integers[j];
 
                 if (i == j) {
                     Assert.IsTrue(Comparators.Compare(integer, ComparisonSymbol.Equal, otherInteger));

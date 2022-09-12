@@ -5,7 +5,9 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+
 using Amber.Shared.Extension;
+
 using NUnit.Framework;
 
 namespace Amber.Shared.Tests.Extension;
@@ -15,7 +17,7 @@ namespace Amber.Shared.Tests.Extension;
 /// </summary>
 [TestFixture]
 public class ActionExtensionsTest {
-    private static readonly TimeSpan Timeout = TimeSpan.FromSeconds(5);
+    private static readonly TimeSpan _timeout = TimeSpan.FromSeconds(5);
 
     [Test]
     public void RunAsync() {
@@ -31,10 +33,10 @@ public class ActionExtensionsTest {
             }
         }
 
-        var (token, task) = ((Action<CancellationTokenSource>)WaitUntilCancellation).RunAsync();
-        Wait(startEvent, Timeout);
+        (CancellationTokenSource token, Task task) = ((Action<CancellationTokenSource>) WaitUntilCancellation).RunAsync();
+        Wait(startEvent, _timeout);
         token.Cancel();
-        Wait(task, Timeout);
+        Wait(task, _timeout);
 
         Assert.AreEqual(task.Status, TaskStatus.RanToCompletion);
         Assert.That(thread, Is.Not.Null.And.Not.EqualTo(Thread.CurrentThread));
