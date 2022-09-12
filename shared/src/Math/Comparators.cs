@@ -5,7 +5,7 @@
 using System;
 using Amber.Shared.Exception;
 
-namespace Amber.Shared.Math; 
+namespace Amber.Shared.Math;
 
 /// <summary>
 /// Comparison symbols

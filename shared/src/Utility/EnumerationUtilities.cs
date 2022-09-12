@@ -4,7 +4,7 @@
 
 using System;
 
-namespace Amber.Shared.Utility; 
+namespace Amber.Shared.Utility;
 
 /// <summary>
 /// Utility class for <see cref="Enum"/>s

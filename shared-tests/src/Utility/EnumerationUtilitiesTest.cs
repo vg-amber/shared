@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Amber.Shared.Utility;
 using NUnit.Framework;
 
-namespace Amber.Shared.Tests.Utility; 
+namespace Amber.Shared.Tests.Utility;
 
 /// <summary>
 /// Tests for <see cref="EnumerationUtilitiesTest"/>

@@ -2,7 +2,7 @@
 // Licensed under Apache License 2.0 or any later version
 // Refer to the LICENSE file included.
 
-namespace Amber.Shared.Function; 
+namespace Amber.Shared.Function;
 
 /// <summary>
 /// Predicate for a <typeparamref name="T"/> object

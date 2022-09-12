@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Amber.Shared.Extension;
 using NUnit.Framework;
 
-namespace Amber.Shared.Tests.Extension; 
+namespace Amber.Shared.Tests.Extension;
 
 /// <summary>
 /// Tests for <see cref="ActionExtensions"/>
@@ -31,7 +31,7 @@ public class ActionExtensionsTest {
             }
         }
 
-        var (token, task) = ((Action<CancellationTokenSource>) WaitUntilCancellation).RunAsync();
+        var (token, task) = ((Action<CancellationTokenSource>)WaitUntilCancellation).RunAsync();
         Wait(startEvent, Timeout);
         token.Cancel();
         Wait(task, Timeout);

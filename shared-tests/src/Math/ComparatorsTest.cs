@@ -5,7 +5,7 @@
 using Amber.Shared.Math;
 using NUnit.Framework;
 
-namespace Amber.Shared.Tests.Math; 
+namespace Amber.Shared.Tests.Math;
 
 /// <summary>
 /// Tests for <see cref="Comparators"/>
