@@ -42,7 +42,11 @@ jobs:
                 uses: actions/setup-dotnet@v2
                 with:
                     dotnet-version: ${{env.dotnet-version}}
+            -   name: Set up tools
+                run: dotnet tool restore
             -   name: Build project
                 run: dotnet build .
             -   name: Run tests
                 run: dotnet test . -l "console;verbosity=detailed"
+            -   name: Run tests with mutations
+                run: dotnet stryker -f stryker-config.ci.json
