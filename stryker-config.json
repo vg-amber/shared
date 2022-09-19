@@ -1,0 +1,5 @@
+{
+    "stryker-config": {
+        "test-projects": [ "shared-tests/shared-tests.csproj" ]
+    }
+}

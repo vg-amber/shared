@@ -40,6 +40,7 @@ public class ActionExtensionsTest {
 
         Assert.AreEqual(task.Status, TaskStatus.RanToCompletion);
         Assert.That(thread, Is.Not.Null.And.Not.EqualTo(Thread.CurrentThread));
+        Assert.Throws<ObjectDisposedException>(token.Cancel);
     }
 
     /// <summary>
