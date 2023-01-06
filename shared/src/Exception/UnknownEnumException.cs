@@ -20,5 +20,5 @@ public class UnknownEnumException<T> : System.Exception where T : Enum {
     /// <summary>
     /// Unknown value
     /// </summary>
-    public T Value { get; }
+    public required T Value { get; init; }
 }
