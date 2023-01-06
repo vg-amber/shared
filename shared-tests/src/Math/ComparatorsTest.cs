@@ -1,4 +1,4 @@
-// Copyright 2021-2022 Vg-Amber Project
+// Copyright 2021-2023 Vg-Amber Project
 // Licensed under Apache License 2.0 or any later version
 // Refer to the LICENSE file included.
 
@@ -36,15 +36,13 @@ public class ComparatorsTest {
                     Assert.IsFalse(Comparators.Compare(integer, ComparisonSymbol.Equal, otherInteger));
                     Assert.IsFalse(Comparators.Compare(integer, ComparisonSymbol.GreaterThan, otherInteger));
                     Assert.IsFalse(Comparators.Compare(integer, ComparisonSymbol.GreaterOrEqual, otherInteger));
-                } else if (i > j) {
+                } else {
                     Assert.IsTrue(Comparators.Compare(integer, ComparisonSymbol.GreaterThan, otherInteger));
                     Assert.IsTrue(Comparators.Compare(integer, ComparisonSymbol.GreaterOrEqual, otherInteger));
 
                     Assert.IsFalse(Comparators.Compare(integer, ComparisonSymbol.Equal, otherInteger));
                     Assert.IsFalse(Comparators.Compare(integer, ComparisonSymbol.LessThan, otherInteger));
                     Assert.IsFalse(Comparators.Compare(integer, ComparisonSymbol.LessOrEqual, otherInteger));
-                } else {
-                    Assert.Fail($"i: {i}, j: {j} => not tested");
                 }
             }
         }
