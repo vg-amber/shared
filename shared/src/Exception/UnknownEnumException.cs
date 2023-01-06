@@ -3,6 +3,7 @@
 // Refer to the LICENSE file included.
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Amber.Shared.Exception;
 
@@ -15,6 +16,7 @@ public class UnknownEnumException<T> : System.Exception where T : Enum {
     /// Constructor
     /// </summary>
     /// <param name="value">Unknown value</param>
+    [SetsRequiredMembers]
     public UnknownEnumException(T value) : base($"Unknown {typeof(T).Name}: {value}") => Value = value;
 
     /// <summary>
