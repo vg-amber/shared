@@ -15,20 +15,15 @@ on:
             - "*"
     workflow_dispatch:
 
-env:
-    dotnet-version: 6.0.x
-
 jobs:
     format:
         name: Verify code format
         runs-on: ubuntu-latest
         steps:
             -   name: Checkout project
-                uses: actions/checkout@v2
-            -   name: Set up dotnet environment
-                uses: actions/setup-dotnet@v2
-                with:
-                    dotnet-version: ${{env.dotnet-version}}
+                uses: actions/checkout@v3
+            -   name: Build project
+                uses: ./.github/workflows/build-project
             -   name: Verify code
                 run: dotnet format . --verify-no-changes -v d
     test:
@@ -37,15 +32,9 @@ jobs:
         needs: format
         steps:
             -   name: Checkout project
-                uses: actions/checkout@v2
-            -   name: Set up dotnet environment
-                uses: actions/setup-dotnet@v2
-                with:
-                    dotnet-version: ${{env.dotnet-version}}
-            -   name: Set up tools
-                run: dotnet tool restore
+                uses: actions/checkout@v3
             -   name: Build project
-                run: dotnet build .
+                uses: ./.github/workflows/build-project
             -   name: Run tests
                 run: dotnet test . -l "console;verbosity=detailed"
             -   name: Run tests with mutations
