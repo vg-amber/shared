@@ -36,6 +36,11 @@ jobs:
             -   name: Build project
                 uses: ./.github/workflows/build-project
             -   name: Run tests
-                run: dotnet test . -l "console;verbosity=detailed"
+                run: dotnet test . -l "console;verbosity=detailed" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
             -   name: Run tests with mutations
                 run: dotnet stryker -f stryker-config.ci.json
+            -   name: Upload coverage
+                uses: codacy/codacy-coverage-reporter-action@v1
+                with:
+                    project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+                    coverage-reports: shared-tests/coverage.opencover.xml
