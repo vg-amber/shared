@@ -27,10 +27,9 @@ public static class TypeExtensions {
 
         // Treat generic arguments
         Type[] genericArguments = type.GetGenericArguments();
-        if (genericArguments.IsEmpty()) {
-            return typeName;
-        }
-
-        return $"{typeName[..typeName.IndexOf("`", StringComparison.Ordinal)]}<{string.Join(", ", genericArguments.Select(Name))}>";
+        return genericArguments.IsEmpty() ?
+            typeName
+            :
+            $"{typeName[..typeName.IndexOf("`", StringComparison.Ordinal)]}<{string.Join(", ", genericArguments.Select(Name))}>";
     }
 }
