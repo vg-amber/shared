@@ -20,7 +20,7 @@ public class ActionExtensionsTest {
     private static readonly TimeSpan _timeout = TimeSpan.FromSeconds(5);
 
     [Test]
-    public void RunAsync() {
+    public void Run() {
         var startEvent = new CountdownEvent(1);
         Thread? thread = null;
 
@@ -33,7 +33,7 @@ public class ActionExtensionsTest {
             }
         }
 
-        (CancellationTokenSource token, Task task) = ((Action<CancellationTokenSource>) WaitUntilCancellation).RunAsync();
+        (CancellationTokenSource token, Task task) = ((Action<CancellationTokenSource>) WaitUntilCancellation).Run();
         Wait(startEvent, _timeout);
         token.Cancel();
         Wait(task, _timeout);

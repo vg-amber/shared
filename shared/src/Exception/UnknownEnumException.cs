@@ -16,8 +16,10 @@ public class UnknownEnumException<T> : System.Exception where T : Enum {
     /// Constructor
     /// </summary>
     /// <param name="value">Unknown value</param>
+    /// <param name="innerException">The exception that is the cause of the current exception or a null reference if no inner exception is specified</param>
     [SetsRequiredMembers]
-    public UnknownEnumException(T value) : base($"Unknown {typeof(T).Name}: {value}") => Value = value;
+    public UnknownEnumException(T value, System.Exception? innerException = null) : base($"Unknown {typeof(T).Name}: {value}", innerException) =>
+        Value = value;
 
     /// <summary>
     /// Unknown value

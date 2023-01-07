@@ -19,7 +19,7 @@ public static class ActionExtensions {
     /// <param name="scheduler">Scheduler used to schedule the task</param>
     /// <param name="options">Task creation options</param>
     /// <returns>Cancellation token and the started task</returns>
-    public static (CancellationTokenSource, Task) RunAsync(this Action<CancellationTokenSource> action, TaskScheduler scheduler,
+    public static (CancellationTokenSource, Task) Run(this Action<CancellationTokenSource> action, TaskScheduler scheduler,
                                                            TaskCreationOptions options) {
         var tokenSource = new CancellationTokenSource();
 
@@ -37,6 +37,6 @@ public static class ActionExtensions {
     /// </summary>
     /// <param name="action">Task taking a cancellation token in parameter</param>
     /// <returns>Cancellation token and the started task</returns>
-    public static (CancellationTokenSource, Task) RunAsync(this Action<CancellationTokenSource> action) =>
-        RunAsync(action, TaskScheduler.Default, TaskCreationOptions.LongRunning);
+    public static (CancellationTokenSource, Task) Run(this Action<CancellationTokenSource> action) =>
+        Run(action, TaskScheduler.Default, TaskCreationOptions.LongRunning);
 }
