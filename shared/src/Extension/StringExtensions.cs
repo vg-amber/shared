@@ -2,6 +2,7 @@
 // Licensed under Apache License 2.0 or any later version
 // Refer to the LICENSE file included.
 
+using System.Globalization;
 using System.Text;
 
 namespace Amber.Shared.Extension;
@@ -14,8 +15,9 @@ public static class StringExtensions {
     /// Convert a string containing letters and underscores into a title case string without underscores
     /// </summary>
     /// <param name="str">String</param>
+    /// <param name="cultureInfo">Culture information used to convert characters</param>
     /// <returns>Transformed string</returns>
-    public static string ToTitleCase(this string str) {
+    public static string ToTitleCase(this string str, CultureInfo cultureInfo) {
         var builder = new StringBuilder(str.Length);
 
         for (int i = 0; i < str.Length; i++) {
@@ -23,11 +25,11 @@ public static class StringExtensions {
                 continue;
             }
 
-            if (i == 0 || str[i - 1] == '_') {
-                builder.Append(char.ToUpper(str[i]));
-            } else {
-                builder.Append(char.ToLower(str[i]));
-            }
+            builder.Append(
+                i == 0 || str[i - 1] == '_'
+                    ? char.ToUpper(str[i], cultureInfo)
+                    : char.ToLower(str[i], cultureInfo)
+            );
         }
 
         return builder.ToString();

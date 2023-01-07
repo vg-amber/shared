@@ -2,6 +2,7 @@
 // Licensed under Apache License 2.0 or any later version
 // Refer to the LICENSE file included.
 
+using System;
 using System.Threading.Tasks;
 
 using Amber.Shared.Exception;
@@ -17,10 +18,13 @@ namespace Amber.Shared.Tests.Exception;
 public class UnknownEnumExceptionTest {
     [Test]
     public void Constructor() {
-        TaskCreationOptions input = TaskCreationOptions.None;
+        const TaskCreationOptions input = TaskCreationOptions.None;
         var ex = new UnknownEnumException<TaskCreationOptions>(input);
 
         Assert.That(ex, Has.Message.EqualTo("Unknown TaskCreationOptions: None"));
         Assert.That(ex.Value, Is.EqualTo(input));
+
+        ex = new UnknownEnumException<TaskCreationOptions>(input, new ApplicationException());
+        Assert.That(ex.InnerException, Is.InstanceOf<ApplicationException>());
     }
 }
