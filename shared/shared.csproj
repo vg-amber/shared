@@ -1,7 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
+    <!-- Source properties -->
     <PropertyGroup>
-        <RootNamespace>Amber.Shared</RootNamespace>
+        <RootNamespace>$(Namespace)</RootNamespace>
+    </PropertyGroup>
+
+    <!-- Assembly properties -->
+    <PropertyGroup>
+        <AssemblyName>$(RootAssembly)</AssemblyName>
         
-        <AssemblyName>amber-shared</AssemblyName>
+        <Description>Library shared among vg-amber projects</Description>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
 </Project>

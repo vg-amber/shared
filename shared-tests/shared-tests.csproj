@@ -1,6 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
+    <!-- Source properties -->
     <PropertyGroup>
-        <RootNamespace>Amber.Shared.Tests</RootNamespace>
+        <RootNamespace>$(Namespace).Tests</RootNamespace>
+    </PropertyGroup>
+
+    <!-- Assembly properties -->
+    <PropertyGroup>
+        <AssemblyName>$(RootAssembly).Tests</AssemblyName>
         
         <IsPackable>false</IsPackable>
     </PropertyGroup>
