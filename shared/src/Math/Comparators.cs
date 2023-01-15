@@ -12,10 +12,25 @@ namespace Amber.Shared.Math;
 /// Comparison symbols
 /// </summary>
 public enum ComparisonSymbol {
+    /// <summary>
+    /// &lt;
+    /// </summary>
     LessThan,
+    /// <summary>
+    /// &lt;=
+    /// </summary>
     LessOrEqual,
+    /// <summary>
+    /// ==
+    /// </summary>
     Equal,
+    /// <summary>
+    /// &gt;=
+    /// </summary>
     GreaterOrEqual,
+    /// <summary>
+    /// &gt;
+    /// </summary>
     GreaterThan
 }
 
